@@ -1,0 +1,234 @@
+{
+  "files": {
+    "total": {
+      "withPatternfly": {
+        "js": 15,
+        "tsx": 12,
+        "css": 1,
+        "scss": 3
+      },
+      "js": 28,
+      "tsx": 14,
+      "ts": 8,
+      "css": 5,
+      "scss": 8
+    },
+    "withPatternfly": {
+      "js": {
+        "files": [
+          "/packages/module/patternfly-docs/generated/extensions/catalog-item-header/catalog-view-item-header/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-item-header/catalog-view/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-tile/catalog-view-tile/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-tile/catalog-view/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view-filter-side-panel/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view-item-header/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view-properties-side-panel/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view-tile/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view-vertical-tabs/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view/catalog-item-header/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view/catalog-tile/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view/filter-side-panel/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view/properties-side-panel/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/catalog-view/vertical-tabs/react.js",
+          "/packages/module/patternfly-docs/pages/index.js"
+        ]
+      },
+      "tsx": {
+        "files": [
+          "/packages/module/src/components/CatalogItemHeader/CatalogItemHeader.tsx",
+          "/packages/module/src/components/CatalogTile/CatalogTile.test.tsx",
+          "/packages/module/src/components/CatalogTile/CatalogTile.tsx",
+          "/packages/module/src/components/CatalogTile/CatalogTileBadge.tsx",
+          "/packages/module/src/components/FilterSidePanel/FilterSidePanel.tsx",
+          "/packages/module/src/components/FilterSidePanel/FilterSidePanelCategory.tsx",
+          "/packages/module/src/components/FilterSidePanel/FilterSidePanelCategoryItem.tsx",
+          "/packages/module/src/components/PropertiesSidePanel/PropertiesSidePanel.test.tsx",
+          "/packages/module/src/components/PropertiesSidePanel/PropertiesSidePanel.tsx",
+          "/packages/module/src/components/PropertiesSidePanel/PropertyItem.tsx",
+          "/packages/module/src/components/VerticalTabs/VerticalTabs.tsx",
+          "/packages/module/src/components/VerticalTabs/VerticalTabsTab.tsx"
+        ]
+      },
+      "css": {
+        "files": [
+          "/packages/module/patternfly-docs/content/examples/filterSidePanel.css"
+        ]
+      },
+      "scss": {
+        "files": [
+          "/packages/module/sass/react-catalog-view-extension/_catalog-item.scss",
+          "/packages/module/sass/react-catalog-view-extension/_catalog-tile.scss",
+          "/packages/module/sass/react-catalog-view-extension/_variables.scss"
+        ]
+      }
+    }
+  },
+  "imports": {
+    "@patternfly/documentation-framework/components": {
+      "AutoLinkHeader": 14,
+      "Example": 14,
+      "Link": 14
+    },
+    "@patternfly/react-catalog-view-extension": {
+      "CatalogItemHeader": 4,
+      "CatalogTile": 4,
+      "CatalogTileBadge": 4,
+      "FilterSidePanel": 2,
+      "FilterSidePanelCategory": 2,
+      "FilterSidePanelCategoryItem": 2,
+      "PropertiesSidePanel": 2,
+      "PropertyItem": 2,
+      "VerticalTabs": 2,
+      "VerticalTabsTab": 2
+    },
+    "react';\\nimport { CatalogItemHeader } from '@patternfly/react-catalog-view-extension';\\nimport pfLogo2 from './examples/pfLogo2.svg';\\n\\nconst Basic = () => (\\n  <CatalogItemHeader\\n    iconImg={pfLogo2}\\n    title=\\\"PatternFly\\\"\\n    />\\n)\",\"title\":\"Basic\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogItemHeader } from '@patternfly/react-catalog-view-extension';\\nimport pfLogo2 from './examples/pfLogo2.svg';\\n\\nconst WithVendorDescription = () => (\\n  <CatalogItemHeader\\n    iconImg={pfLogo2}\\n    title=\\\"Patternfly-React\\\"\\n    vendor={\\n      <span>\\n        provided by <a href=\\\"http://redhat.com\\\">Red Hat</a>\\n      </span>\\n    }\\n  />\\n)\",\"title\":\"With vendor description\",\"lang\":\"js": {
+      "React": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/cog-icon": {
+      "CogIcon": 5
+    },
+    "@patternfly/react-icons/dist/esm/icons/outlined-check-circle-icon": {
+      "OutlinedCheckCircleIcon": 5
+    },
+    "react';\\nimport { CatalogTile, CatalogTileBadge } from '@patternfly/react-catalog-view-extension';\\nimport CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';\\nimport pfLogo2 from './pfLogo2.svg';\\nimport '../../../../dist/css/react-catalog-view-extension.css';\\n\\nconst BasicFeaturedTile = () => (\\n  <CatalogTile\\n    id=\\\"simple-tile\\\"\\n    featured\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      <CatalogTileBadge title=\\\"Certified\\\">\\n        <CogIcon />\\n      </CatalogTileBadge>\\n    ]}\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n    description={\\n      'This is a very, very long description that should be truncated after three lines. ' +\\n      'Three lines is the default for cards without a footer. Cards with a footer are truncated after one line. Truncation function use is deprecated; please pass in a maxDescriptionLength of -1 to override it. ' +\\n      'This has changed from PatternFly 3.'\\n    }\\n  />\\n)\",\"title\":\"Basic featured tile\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogTile, CatalogTileBadge } from '@patternfly/react-catalog-view-extension';\\nimport CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';\\nimport OutlinedCheckCircleIcon from '@patternfly/react-icons/dist/esm/icons/outlined-check-circle-icon';\\nimport pfLogo2 from './pfLogo2.svg';\\n\\nconst BasicWithFooter = () => (\\n  <CatalogTile\\n    id=\\\"simple-footer\\\"\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      <CatalogTileBadge title=\\\"Certified\\\">\\n        <CogIcon />\\n      </CatalogTileBadge>\\n    ]}\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n    description={\\n      'This is a very, very long description that should be truncated after one line. ' +\\n      'Three lines is the default for cards without a footer. Cards with a footer are truncated after one line. Truncation function use is deprecated; please pass in a maxDescriptionLength of -1 to override it. ' +\\n      'This has changed from PatternFly 3.'\\n    }\\n    footer={\\n      <span>\\n        <OutlinedCheckCircleIcon style={{color: 'var(--pf-v5-global--success-color--100)'}} /> Enabled\\n      </span>\\n    }\\n  />\\n)\",\"title\":\"Basic with footer\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogTile, CatalogTileBadge } from '@patternfly/react-catalog-view-extension';\\nimport CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';\\nimport pfLogo2 from './pfLogo2.svg';\\n\\nconst LinkVariant = () => (\\n  <CatalogTile\\n    id=\\\"simple-link-variant\\\"\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      <CatalogTileBadge title=\\\"Certified\\\">\\n        <CogIcon />\\n      </CatalogTileBadge>\\n    ]}\\n    href=\\\"http://patternfly.org/v4\\\"\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n    description={\\n      'This is a very, very long description that should be truncated after three lines. ' +\\n      'Three lines is the default for cards without a footer. Cards with a footer are truncated after one line. Truncation function use is deprecated; please pass in a maxDescriptionLength of -1 to override it. ' +\\n      'This has changed from PatternFly 3.'\\n    }\\n  />\\n)\",\"title\":\"Link variant\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogTile, CatalogTileBadge } from '@patternfly/react-catalog-view-extension';\\nimport CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';\\nimport OutlinedCheckCircleIcon from '@patternfly/react-icons/dist/esm/icons/outlined-check-circle-icon';\\nimport pfLogo2 from './pfLogo2.svg';\\n\\nconst WithMultipleIconBadges = () => (\\n  <CatalogTile\\n    id=\\\"multiIcon\\\"\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      <CatalogTileBadge title=\\\"Certified\\\">\\n        <CogIcon />\\n      </CatalogTileBadge>,\\n      <CatalogTileBadge title=\\\"USDA Approved\\\">\\n        <OutlinedCheckCircleIcon style={{color: 'var(--pf-v5-global--success-color--100)'}} />\\n      </CatalogTileBadge>\\n    ]}\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n    description={\\n      'This is a very, very long description that should be truncated after three lines. ' +\\n      'Three lines is the default for cards without a footer. Cards with a footer are truncated after one line. Truncation function use is deprecated; please pass in a maxDescriptionLength of -1 to override it. ' +\\n      'This has changed from PatternFly 3.'\\n    }\\n  />\\n)\",\"title\":\"With multiple icon badges\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogTile } from '@patternfly/react-catalog-view-extension';\\nimport pfLogo2 from './pfLogo2.svg';\\n\\nconst WithTextBadge = () => (\\n  <CatalogTile\\n    id=\\\"text-badge\\\"\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      'Community'\\n    ]}\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n    description={\\n      'This is a very, very long description that should be truncated after three lines. ' +\\n      'Three lines is the default for cards without a footer. Cards with a footer are truncated after one line. Truncation function use is deprecated; please pass in a maxDescriptionLength of -1 to override it. ' +\\n      'This has changed from PatternFly 3.'\\n    }\\n  />\\n)\",\"title\":\"With text badge\",\"lang\":\"js": {
+      "React": 4
+    },
+    "react';\\nimport { CatalogTile, CatalogTileBadge } from '@patternfly/react-catalog-view-extension';\\nimport CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';\\nimport pfLogo2 from './pfLogo2.svg';\\n\\nconst WithChildrenInsteadOfDescription = () => (\\n  <CatalogTile\\n    id=\\\"simple-with-children\\\"\\n    featured\\n    iconImg={pfLogo2}\\n    iconAlt=\\\"PatternFly logo\\\"\\n    badges={[\\n      <CatalogTileBadge title=\\\"Certified\\\">\\n        <CogIcon />\\n      </CatalogTileBadge>\\n    ]}\\n    title=\\\"Patternfly-React\\\"\\n    vendor=\\\"provided by Red Hat\\\"\\n  >\\n    This is a very, very long stetch of child text that should be not be truncated\\n    and illustrates how Flyers can add longer content to PatternFly 4 catalog tiles\\n    using the children prop. Cards usually truncate descriptions at three lines.\\n    Cards with a footer are truncated after one line. This has changed from PatternFly 3.\\n    Children can be of any length.\\n  </CatalogTile>\\n)\",\"title\":\"With children instead of description\",\"lang\":\"js": {
+      "React": 4
+    },
+    "@patternfly/react-icons/dist/esm/icons/star-icon": {
+      "StarIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-paypal-icon": {
+      "CcPaypalIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-amex-icon": {
+      "CcAmexIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-discover-icon": {
+      "CcDiscoverIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-visa-icon": {
+      "CcVisaIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-mastercard-icon": {
+      "CcMastercardIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/cc-diners-club-icon": {
+      "CcDinersClubIcon": 2
+    },
+    "react';\\nimport { FilterSidePanel, FilterSidePanelCategory, FilterSidePanelCategoryItem } from '@patternfly/react-catalog-view-extension';\\nimport StarIcon from '@patternfly/react-icons/dist/esm/icons/star-icon';\\nimport CcPaypalIcon from '@patternfly/react-icons/dist/esm/icons/cc-paypal-icon';\\nimport CcAmexIcon from '@patternfly/react-icons/dist/esm/icons/cc-amex-icon';\\nimport CcDiscoverIcon from '@patternfly/react-icons/dist/esm/icons/cc-discover-icon';\\nimport CcVisaIcon from '@patternfly/react-icons/dist/esm/icons/cc-visa-icon';\\nimport CcMastercardIcon from '@patternfly/react-icons/dist/esm/icons/cc-mastercard-icon';\\nimport CcDinersClubIcon from '@patternfly/react-icons/dist/esm/icons/cc-diners-club-icon';\\nimport { TextInput } from '@patternfly/react-core';\\n\\nclass MockFilterSidePanelExample extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {\\n      activeFilters: {\\n        typeSUV: false,\\n        typeSedan: false,\\n        typePickup: false,\\n        typeSports: false,\\n        makeChevy: false,\\n        makeFord: false,\\n        makeDodge: false,\\n        makeVolkswagen: false,\\n        makeHyundai: false,\\n        makeHonda: false,\\n        makeToyota: false,\\n        makeMercedes: false,\\n        makeBMW: false,\\n        makeInfiniti: false,\\n        makeLexus: false,\\n        makeAcura: false,\\n        paymentPaypal: false,\\n        paymentDiscover: false,\\n        paymentVisa: false,\\n        paymentMastercard: false,\\n        paymentAmex: false,\\n        paymentDinersClub: false,\\n        mileage50: false,\\n        mileage40: false,\\n        mileage30: false,\\n        mileage20: false,\\n        mileage10: false,\\n        rating5: false,\\n        rating4: false,\\n        rating3: false,\\n        rating2: false,\\n        rating1: false\\n      },\\n      showAllCategories: {\\n        type: false,\\n        make: false,\\n        paymentOptions: false,\\n        mileage: false,\\n        rating: false\\n      }\\n    };\\n    \\n    this.onShowAllToggle = id => {\\n      const showAllCategories = { ...this.state.showAllCategories };\\n      showAllCategories[id] = !showAllCategories[id];\\n      this.setState({ showAllCategories });\\n    };\\n  \\n    this.onFilterChange = (id, value) => {\\n      const activeFilters = { ...this.state.activeFilters };\\n      activeFilters[id] = value;\\n      this.setState({ activeFilters });\\n    };\\n  \\n    this.getStars = count => {\\n      const stars = [];\\n  \\n      for (let i = 0; i < count; i++) {\\n        stars.push(<StarIcon key={i} />);\\n      }\\n  \\n      return (\\n        <span>\\n          <span className=\\\"pf-v5-u-screen-reader\\\">{`${count} stars`}</span>\\n          {stars}\\n        </span>\\n      );\\n    };\\n  }\\n  \\n  render() {\\n    const { activeFilters, showAllCategories } = this.state;\\n    const maxShowCount = 5;\\n    const leeway = 2;\\n    return (\\n     <div style={{ width: '205px', border: '1px solid grey', paddingTop: '20px' }}>   \\n      <FilterSidePanel id=\\\"filter-panel\\\">\\n        <FilterSidePanelCategory key=\\\"cat1\\\"> \\n          <TextInput type=\\\"text\\\" id=\\\"filter-text-input\\\" placeholder=\\\"Filter by name\\\" aria-label=\\\"filter text input\\\" />\\n        </FilterSidePanelCategory>\\n        <FilterSidePanelCategory\\n          key=\\\"cat2\\\"\\n          title=\\\"Type\\\"\\n          maxShowCount={maxShowCount}\\n          leeway={leeway}\\n          showAll={showAllCategories.type}\\n          onShowAllToggle={() => this.onShowAllToggle('type')}\\n        >\\n          <FilterSidePanelCategoryItem\\n            key=\\\"suv\\\"\\n            count={23}\\n            checked={activeFilters.typeSUV}\\n            onClick={e => this.onFilterChange('typeSUV', e.target.checked)}\\n          >\\n            SUV\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"sedan\\\"\\n            count={11}\\n            checked={activeFilters.typeSedan}\\n            onClick={e => this.onFilterChange('typeSedan', e.target.checked)}\\n          >\\n            Sedan\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"pickup\\\"\\n            count={5}\\n            checked={activeFilters.typePickup}\\n            onClick={e => this.onFilterChange('typePickup', e.target.checked)}\\n          >\\n            Pickup Truck\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"sports\\\"\\n            count={3}\\n            checked={activeFilters.typeSports}\\n            onClick={e => this.onFilterChange('typeSports', e.target.checked)}\\n          >\\n            Sports Car\\n          </FilterSidePanelCategoryItem>\\n        </FilterSidePanelCategory>\\n        <FilterSidePanelCategory\\n          key=\\\"cat3\\\"\\n          title=\\\"Manufacturer\\\"\\n          maxShowCount={maxShowCount}\\n          leeway={leeway}\\n          showAll={showAllCategories.manufacturer}\\n          onShowAllToggle={() => this.onShowAllToggle('manufacturer')}\\n        >\\n          <FilterSidePanelCategoryItem\\n            key=\\\"chevy\\\"\\n            count={6}\\n            checked={activeFilters.makeChevy}\\n            onClick={e => this.onFilterChange('makeChevy', e.target.checked)}\\n          >\\n            Chevrolet\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"ford\\\"\\n            count={5}\\n            checked={activeFilters.makeFord}\\n            onClick={e => this.onFilterChange('makeFord', e.target.checked)}\\n          >\\n            Ford\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"dodge\\\"\\n            count={7}\\n            checked={activeFilters.makeDodge}\\n            onClick={e => this.onFilterChange('makeDodge', e.target.checked)}\\n          >\\n            Dodge\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"volks\\\"\\n            count={4}\\n            checked={activeFilters.makeVolkswagen}\\n            onClick={e => this.onFilterChange('makeVolkswagen', e.target.checked)}\\n          >\\n            Volkswagen\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"hyundai\\\"\\n            count={2}\\n            checked={activeFilters.makeHyundai}\\n            onClick={e => this.onFilterChange('makeHyundai', e.target.checked)}\\n          >\\n            Hyundai\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"honda\\\"\\n            count={3}\\n            checked={activeFilters.makeHonda}\\n            onClick={e => this.onFilterChange('makeHonda', e.target.checked)}\\n          >\\n            Honda\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"toyota\\\"\\n            count={6}\\n            checked={activeFilters.makeToyota}\\n            onClick={e => this.onFilterChange('makeToyota', e.target.checked)}\\n          >\\n            Toyota\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"mercedes\\\"\\n            count={2}\\n            checked={activeFilters.makeMercedes}\\n            onClick={e => this.onFilterChange('makeMercedes', e.target.checked)}\\n          >\\n            Mercedes\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"bmw\\\"\\n            count={2}\\n            checked={activeFilters.makeBMW}\\n            onClick={e => this.onFilterChange('makeBMW', e.target.checked)}\\n          >\\n            BMW\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"infiniti\\\"\\n            count={1}\\n            checked={activeFilters.makeInfiniti}\\n            onClick={e => this.onFilterChange('makeInfiniti', e.target.checked)}\\n          >\\n            Infiniti\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"lexus\\\"\\n            count={1}\\n            checked={activeFilters.makeLexus}\\n            onClick={e => this.onFilterChange('makeLexus', e.target.checked)}\\n          >\\n            Lexus\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"acura\\\"\\n            count={0}\\n            checked={activeFilters.makeAcura}\\n            onClick={e => this.onFilterChange('makeAcura', e.target.checked)}\\n          >\\n            Acura\\n          </FilterSidePanelCategoryItem>\\n        </FilterSidePanelCategory>\\n        <FilterSidePanelCategory\\n          key=\\\"cat4\\\"\\n          title=\\\"Payment Options\\\"\\n          maxShowCount={maxShowCount}\\n          leeway={leeway}\\n          showAll={showAllCategories.payment}\\n          onShowAllToggle={() => this.onShowAllToggle('payment')}\\n        >\\n          <FilterSidePanelCategoryItem\\n            key=\\\"pp\\\"\\n            icon={<CcPaypalIcon />}\\n            checked={activeFilters.paymentPaypal}\\n            onClick={e => this.onFilterChange('paymentPaypal', e.target.checked)}\\n          >\\n            PayPal\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"discover\\\"\\n            icon={<CcDiscoverIcon />}\\n            checked={activeFilters.paymentDiscover}\\n            onClick={e => this.onFilterChange('paymentDiscover', e.target.checked)}\\n          >\\n            Discover\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"visa\\\"\\n            icon={<CcVisaIcon />}\\n            checked={activeFilters.paymentVisa}\\n            onClick={e => this.onFilterChange('paymentVisa', e.target.checked)}\\n          >\\n            Visa\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"mc\\\"\\n            icon={<CcMastercardIcon />}\\n            checked={activeFilters.paymentMastercard}\\n            onClick={e => this.onFilterChange('paymentMastercard', e.target.checked)}\\n          >\\n            Mastercard\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"amex\\\"\\n            icon={<CcAmexIcon />}\\n            checked={activeFilters.paymentAmex}\\n            onClick={e => this.onFilterChange('paymentAmex', e.target.checked)}\\n          >\\n            American Express\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"dc\\\"\\n            icon={<CcDinersClubIcon />}\\n            checked={activeFilters.paymentDinersClub}\\n            onClick={e => this.onFilterChange('paymentDinersClub', e.target.checked)}\\n          >\\n            {\\\"Diner's Club\\\"}\\n          </FilterSidePanelCategoryItem>\\n        </FilterSidePanelCategory>\\n        <FilterSidePanelCategory\\n          key=\\\"cat5\\\"\\n          title=\\\"Fuel Mileage\\\"\\n          maxShowCount={maxShowCount}\\n          leeway={leeway}\\n          showAll={showAllCategories.mileage}\\n          onShowAllToggle={() => this.onShowAllToggle('mileage')}\\n        >\\n          <FilterSidePanelCategoryItem\\n            key=\\\"gt50\\\"\\n            count={3}\\n            checked={activeFilters.mileage50}\\n            onClick={e => this.onFilterChange('mileage50', e.target.checked)}\\n          >\\n            50+\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"4050\\\"\\n            count={7}\\n            checked={activeFilters.mileage40}\\n            onClick={e => this.onFilterChange('mileage40', e.target.checked)}\\n          >\\n            40-50\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"3040\\\"\\n            count={9}\\n            checked={activeFilters.mileage30}\\n            onClick={e => this.onFilterChange('mileage30', e.target.checked)}\\n          >\\n            30-40\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"2030\\\"\\n            count={12}\\n            checked={activeFilters.mileage20}\\n            onClick={e => this.onFilterChange('mileage20', e.target.checked)}\\n          >\\n            20-30\\n          </FilterSidePanelCategoryItem>\\n          <FilterSidePanelCategoryItem\\n            key=\\\"gt20\\\"\\n            count={8}\\n            checked={activeFilters.mileage10}\\n            onClick={e => this.onFilterChange('mileage10', e.target.checked)}\\n          >\\n            {'< 20'}\\n          </FilterSidePanelCategoryItem>\\n        </FilterSidePanelCategory>\\n        <FilterSidePanelCategory\\n          key=\\\"cat6\\\"\\n          title=\\\"Rating\\\"\\n          maxShowCount={maxShowCount}\\n          leeway={leeway}\\n          showAll={showAllCategories.rating}\\n          onShowAllToggle={() => this.onShowAllToggle('rating')}\\n        >\\n          <FilterSidePanelCategoryItem\\n            key=\\\"5star\\\"\\n            count={2}\\n            icon={this.getStars(5)}\\n            checked={activeFilters.rating5}\\n            onClick={e => this.onFilterChange('rating5', e.target.checked)}\\n          />\\n          <FilterSidePanelCategoryItem\\n            key=\\\"4star\\\"\\n            count={12}\\n            icon={this.getStars(4)}\\n            checked={activeFilters.rating4}\\n            onClick={e => this.onFilterChange('rating4', e.target.checked)}\\n          />\\n          <FilterSidePanelCategoryItem\\n            key=\\\"3star\\\"\\n            count={8}\\n            icon={this.getStars(3)}\\n            checked={activeFilters.rating3}\\n            onClick={e => this.onFilterChange('rating3', e.target.checked)}\\n          />\\n          <FilterSidePanelCategoryItem\\n            key=\\\"2star\\\"\\n            count={5}\\n            icon={this.getStars(2)}\\n            checked={activeFilters.rating2}\\n            onClick={e => this.onFilterChange('rating2', e.target.checked)}\\n          />\\n          <FilterSidePanelCategoryItem\\n            key=\\\"1star\\\"\\n            count={3}\\n            icon={this.getStars(1)}\\n            checked={activeFilters.rating1}\\n            onClick={e => this.onFilterChange('rating1', e.target.checked)}\\n          />\\n        </FilterSidePanelCategory>\\n      </FilterSidePanel>\\n    </div>\\n    );\\n  }\\n}\",\"title\":\"Basic\",\"lang\":\"js": {
+      "React": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/ok-icon": {
+      "OkIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/external-link-alt-icon": {
+      "ExternalLinkAltIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/globe-icon": {
+      "GlobeIcon": 3
+    },
+    "react';\\nimport { PropertiesSidePanel, PropertyItem } from '@patternfly/react-catalog-view-extension';\\nimport OkIcon from '@patternfly/react-icons/dist/esm/icons/ok-icon';\\nimport ExternalLinkAltIcon from '@patternfly/react-icons/dist/esm/icons/external-link-alt-icon';\\nimport GlobeIcon from '@patternfly/react-icons/dist/esm/icons/globe-icon';\\n\\nconst PropertiesSidePanelWithPropertyItems = () => (\\n  <div style={{ display: 'inline-block', padding: '15px', border: '1px solid grey' }}>\\n    <PropertiesSidePanel>\\n      <PropertyItem label=\\\"Operator Version\\\" value=\\\"0.9.8 (latest)\\\" />\\n      <PropertyItem\\n        label=\\\"Certified Level\\\"\\n        value={\\n          <span>\\n            <OkIcon style={{color: 'var(--pf-v5-global--success-color--100)'}} /> Certified\\n          </span>\\n        }\\n      />\\n      <PropertyItem label=\\\"Provider\\\" value=\\\"Red Hat, Inc\\\" />\\n      <PropertyItem label=\\\"Health Index\\\" value=\\\"A\\\" />\\n      <PropertyItem\\n        label=\\\"Repository\\\"\\n        value={\\n          <a href=\\\"https://quay.io/repository/redhat/prometheus-operator\\\">\\n            https://quay.io/repository/redhat/prometheus-operator\\n          </a>\\n        }\\n      />\\n      <PropertyItem\\n        label=\\\"Container Image\\\"\\n        value={\\n          <a href=\\\"#\\\">\\n            0.22.2 <ExternalLinkAltIcon />\\n          </a>\\n        }\\n      />\\n      <PropertyItem\\n        label=\\\"Created At\\\"\\n        value={\\n          <span>\\n            <GlobeIcon /> Aug 23, 1:58pm\\n          </span>\\n        }\\n      />\\n      <PropertyItem label=\\\"Support\\\" value={<a href=\\\"#\\\">Red Hat</a>} />\\n    </PropertiesSidePanel>\\n  </div>\\n)\",\"title\":\"Properties side panel with property items\",\"lang\":\"js": {
+      "React": 2
+    },
+    "react';\\nimport { VerticalTabs, VerticalTabsTab } from '@patternfly/react-catalog-view-extension';\\n\\nclass MockVerticalTabsExample extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = { activeTabId: 'all' };\\n    this.onActivateTab = id => {\\n      this.setState({ activeTabId: id });\\n    };\\n  }\\n\\n  render() {\\n    const { restrictTabs, wrapStyle } = this.props;\\n    const { activeTabId } = this.state;\\n\\n    const topLevelIds = ['all', 'one', 'two', 'three', 'four', 'five', 'six', 'seven'];\\n\\n    const renderTab = (id, title, children, props) => {\\n      const childIds = React.Children.map(children, child => child.props.id);\\n\\n      return (\\n        <VerticalTabsTab\\n          id={id}\\n          key={id}\\n          title={title}\\n          wrapStyle={wrapStyle}\\n          onActivate={() => this.onActivateTab(id)}\\n          active={activeTabId === id}\\n          hasActiveDescendant={activeTabId.startsWith(id)}\\n          {...props}\\n        >\\n          {children && (\\n            <VerticalTabs restrictTabs={restrictTabs} activeTab={childIds.includes(activeTabId)}>\\n              {children}\\n            </VerticalTabs>\\n          )}\\n        </VerticalTabsTab>\\n      );\\n    };\\n\\n    return (\\n      <VerticalTabs id=\\\"vertical-tabs\\\" restrictTabs={restrictTabs} activeTab={topLevelIds.includes(activeTabId)}>\\n        {renderTab('all', 'All', null, { shown: true })}\\n        {renderTab('one', 'Tab One', [\\n          renderTab('one-one', 'Tab One-One', [\\n            renderTab('one-one-one', 'About Modal', null, {href: \\\"../components/about-modal\\\"}),\\n            renderTab('one-one-two', 'Accordion', null, {href: \\\"../components/accordion\\\"}),\\n            renderTab('one-one-three', 'Redhat', null, {href: \\\"http://www.redhat.com\\\"})\\n          ]),\\n          renderTab('one-two', 'Tab One-Two', [\\n            renderTab('one-two-one', 'Tab One-Two-One'),\\n            renderTab('one-two-two', 'Tab One-Two-Two'),\\n            renderTab('one-two-three', 'Tab One-Two-Three')\\n          ]),\\n          renderTab('one-three', 'Tab One-Thee')\\n        ])}\\n        {renderTab('two', 'Tab Two', [\\n          renderTab('two-one', 'Tab Two-One'),\\n          renderTab('two-two', 'Tab Two-Two'),\\n          renderTab('two-three', 'Tab Two-Three')\\n        ])}\\n        {renderTab('three', 'Tab Three - Donec id elit non mi porta gravida at eget metus')}\\n        {renderTab('four', 'Tab Four')}\\n        {renderTab('five', 'Tab Five')}\\n        {renderTab('six', 'Tab Six')}\\n        {renderTab('seven', 'Tab Seven')}\\n      </VerticalTabs>\\n    );\\n  }\\n}\",\"title\":\"Basic\",\"lang\":\"js": {
+      "React": 2
+    },
+    "react';\\nimport { CatalogItemHeader } from '@patternfly/react-catalog-view-extension';\\nimport pfLogo2 from './examples/pfLogo2.svg';\\n\\nconst WithVendorDescription = () => (\\n  <CatalogItemHeader\\n    iconImg={pfLogo2}\\n    title=\\\"Patternfly-React\\\"\\n    vendor={\\n      <span>\\n        provided by <a style={{ textDecoration: 'underline' }}href=\\\"http://redhat.com\\\">Red Hat</a>\\n      </span>\\n    }\\n  />\\n)\",\"title\":\"With vendor description\",\"lang\":\"js": {
+      "React": 1
+    },
+    "@patternfly/react-core": {
+      "Title": 1,
+      "PageSection": 1,
+      "Card": 1,
+      "CardHeader": 1,
+      "CardTitle": 1,
+      "CardBody": 1,
+      "CardFooter": 1,
+      "getUniqueId": 1,
+      "Tooltip": 1,
+      "Button": 1,
+      "Checkbox": 1,
+      "Text": 1,
+      "TextVariants": 1
+    },
+    "@patternfly/react-styles": {
+      "css": 10
+    },
+    "@patternfly/react-styles/css/components/Form/form": {
+      "formStyles": 1
+    }
+  },
+  "classes": {
+    "pf-m-link": 1
+  },
+  "cssVars": {
+    "--pf-v5-global--Color--200": 2,
+    "--pf-v5-global--active-color--100": 2,
+    "--pf-v5-global--Color--100": 1
+  },
+  "repo": "https://github.com/patternfly/react-catalog-view.git",
+  "name": "React Catalog View",
+  "date": "2023-09-13T19:53:29.638Z",
+  "dependencies": {
+    "@babel/core": 1,
+    "@babel/preset-env": 1,
+    "@babel/preset-flow": 1,
+    "@babel/preset-react": 1,
+    "@babel/preset-typescript": 1,
+    "@patternfly/documentation-framework": 1,
+    "@patternfly/patternfly": 1,
+    "@patternfly/patternfly-a11y": 1,
+    "@patternfly/react-code-editor": 1,
+    "@patternfly/react-core": 1,
+    "@patternfly/react-styles": 1,
+    "@patternfly/react-table": 1,
+    "@testing-library/dom": 1,
+    "@testing-library/jest-dom": 1,
+    "@testing-library/react": 1,
+    "@testing-library/user-event": 1,
+    "@types/react": 1,
+    "@types/react-dom": 1,
+    "@typescript-eslint/eslint-plugin": 1,
+    "@typescript-eslint/parser": 1,
+    "babel-jest": 1,
+    "concurrently": 1,
+    "eslint": 1,
+    "eslint-config-prettier": 1,
+    "eslint-config-standard-with-typescript": 1,
+    "eslint-plugin-import": 1,
+    "eslint-plugin-markdown": 1,
+    "eslint-plugin-n": 1,
+    "eslint-plugin-patternfly-react": 1,
+    "eslint-plugin-promise": 1,
+    "jest": 1,
+    "jest-environment-jsdom": 1,
+    "monaco-editor": 1,
+    "prettier": 1,
+    "react": 2,
+    "react-dom": 2,
+    "react-monaco-editor": 1,
+    "rimraf": 1,
+    "sass": 1,
+    "serve": 1,
+    "shx": 1,
+    "tslib": 1,
+    "typescript": 1
+  }
+}

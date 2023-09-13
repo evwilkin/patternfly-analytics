@@ -1,0 +1,195 @@
+{
+  "files": {
+    "total": {
+      "withPatternfly": {
+        "jsx": 7,
+        "js": 7,
+        "tsx": 3
+      },
+      "js": 21,
+      "jsx": 7,
+      "ts": 10,
+      "tsx": 7
+    },
+    "withPatternfly": {
+      "jsx": {
+        "files": [
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/demos/ComplexToolbarLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/ANSIColorLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/BasicLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/BasicSearchLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/CustomControlLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/FooterComponentLogViewer.jsx",
+          "/packages/module/patternfly-docs/content/extensions/react-log-viewer/examples/HeaderComponentLogViewer.jsx"
+        ]
+      },
+      "js": {
+        "files": [
+          "/packages/module/patternfly-docs/generated/extensions/log-viewer/design-guidelines.js",
+          "/packages/module/patternfly-docs/generated/extensions/log-viewer/extensions.js",
+          "/packages/module/patternfly-docs/generated/extensions/log-viewer/react-demos.js",
+          "/packages/module/patternfly-docs/generated/extensions/log-viewer/react.js",
+          "/packages/module/patternfly-docs/generated/extensions/react-log-viewer/design-guidelines.js",
+          "/packages/module/patternfly-docs/generated/extensions/react-log-viewer/react.js",
+          "/packages/module/patternfly-docs/pages/index.js"
+        ]
+      },
+      "tsx": {
+        "files": [
+          "/packages/module/src/LogViewer/LogViewer.tsx",
+          "/packages/module/src/LogViewer/LogViewerRow.tsx",
+          "/packages/module/src/LogViewer/LogViewerSearch.tsx"
+        ]
+      }
+    }
+  },
+  "imports": {
+    "@patternfly/react-log-viewer": {
+      "LogViewer": 10,
+      "LogViewerSearch": 6,
+      "LogViewerContext": 1,
+      "ExtendedButton": 1
+    },
+    "@patternfly/react-core": {
+      "Badge": 3,
+      "Button": 6,
+      "Tooltip": 3,
+      "Toolbar": 6,
+      "ToolbarContent": 6,
+      "ToolbarGroup": 3,
+      "ToolbarItem": 6,
+      "ToolbarToggleGroup": 3,
+      "Checkbox": 3,
+      "Banner": 1,
+      "Select": 1,
+      "SelectOption": 1,
+      "PageSection": 2,
+      "PageSectionVariants": 1,
+      "Title": 1,
+      "SearchInput": 1,
+      "SearchInputProps": 1
+    },
+    "@patternfly/react-core/deprecated": {
+      "Select-deprecated": 2,
+      "SelectOption-deprecated": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/outlined-play-circle-icon": {
+      "OutlinedPlayCircleIcon": 2
+    },
+    "@patternfly/react-icons/dist/esm/icons/expand-icon": {
+      "ExpandIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/pause-icon": {
+      "PauseIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/play-icon": {
+      "PlayIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon": {
+      "EllipsisVIcon": 3
+    },
+    "@patternfly/react-icons/dist/esm/icons/download-icon": {
+      "DownloadIcon": 3
+    },
+    "@patternfly/documentation-framework/components": {
+      "AutoLinkHeader": 6,
+      "Example": 6,
+      "Link": 6
+    },
+    "@patternfly/react-icons": {
+      "OutlinedPlayCircleIcon": 1
+    },
+    "react';\\nimport { data } from '../examples/realTestData';\\nimport { LogViewer, LogViewerSearch } from '@patternfly/react-log-viewer';\\nimport {\\n  Badge,\\n  Button,\\n  Select,\\n  SelectOption,\\n  Tooltip,\\n  Toolbar,\\n  ToolbarContent,\\n  ToolbarGroup,\\n  ToolbarItem,\\n  ToolbarToggleGroup\\n} from '@patternfly/react-core';\\nimport OutlinedPlayCircleIcon from '@patternfly/react-icons/dist/esm/icons/outlined-play-circle-icon';\\nimport ExpandIcon from '@patternfly/react-icons/dist/esm/icons/expand-icon';\\nimport PauseIcon from '@patternfly/react-icons/dist/esm/icons/pause-icon';\\nimport PlayIcon from '@patternfly/react-icons/dist/esm/icons/play-icon';\\nimport EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';\\nimport DownloadIcon from '@patternfly/react-icons/dist/esm/icons/download-icon';\\n\\nComplexToolbarLogViewer = () => {\\n  const dataSources = {\\n    'container-1': { type: 'C', id: 'data1' },\\n    'container-2': { type: 'D', id: 'data2' },\\n    'container-3': { type: 'E', id: 'data3' }\\n  };\\n  const [isPaused, setIsPaused] = React.useState(false);\\n  const [isFullScreen, setIsFullScreen] = React.useState(false);\\n  const [itemCount, setItemCount] = React.useState(1);\\n  const [currentItemCount, setCurrentItemCount] = React.useState(0);\\n  const [renderData, setRenderData] = React.useState('');\\n  const [selectedDataSource, setSelectedDataSource] = React.useState('container-1');\\n  const [selectDataSourceOpen, setSelectDataSourceOpen] = React.useState(false);\\n  const [timer, setTimer] = React.useState(null);\\n  const [selectedData, setSelectedData] = React.useState(data[dataSources[selectedDataSource].id].split('\\\\n'));\\n  const [buffer, setBuffer] = React.useState([]);\\n  const [linesBehind, setLinesBehind] = React.useState(0);\\n  const logViewerRef = React.useRef();\\n\\n  React.useEffect(() => {\\n    setTimer(\\n      window.setInterval(() => {\\n        setItemCount(itemCount => itemCount + 1);\\n      }, 500)\\n    );\\n    return () => {\\n      window.clearInterval(timer);\\n    };\\n  }, []);\\n\\n  React.useEffect(() => {\\n    if (itemCount > selectedData.length) {\\n      window.clearInterval(timer);\\n    } else {\\n      setBuffer(selectedData.slice(0, itemCount));\\n    }\\n  }, [itemCount]);\\n\\n  React.useEffect(() => {\\n    if (!isPaused && buffer.length > 0) {\\n      setCurrentItemCount(buffer.length);\\n      setRenderData(buffer.join('\\\\n'));\\n      if (logViewerRef && logViewerRef.current) {\\n        logViewerRef.current.scrollToBottom();\\n      }\\n    } else if (buffer.length !== currentItemCount) {\\n      setLinesBehind(buffer.length - currentItemCount);\\n    } else {\\n      setLinesBehind(0);\\n    }\\n  }, [isPaused, buffer]);\\n\\n  const onExpandClick = event => {\\n    const element = document.querySelector('#complex-toolbar-demo');\\n\\n    if (!isFullScreen) {\\n      if (element.requestFullscreen) {\\n        element.requestFullscreen();\\n      } else if (element.mozRequestFullScreen) {\\n        element.mozRequestFullScreen();\\n      } else if (element.webkitRequestFullScreen) {\\n        element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);\\n      }\\n      setIsFullScreen(true);\\n    } else {\\n      if (document.exitFullscreen) {\\n        document.exitFullscreen();\\n      } else if (document.webkitExitFullscreen) {\\n        /* Safari */\\n        document.webkitExitFullscreen();\\n      } else if (document.msExitFullscreen) {\\n        /* IE11 */\\n        document.msExitFullscreen();\\n      }\\n      setIsFullScreen(false);\\n    }\\n  };\\n\\n  const onDownloadClick = () => {\\n    const element = document.createElement('a');\\n    const dataToDownload = [data[dataSources[selectedDataSource].id]];\\n    const file = new Blob(dataToDownload, { type: 'text/plain' });\\n    element.href = URL.createObjectURL(file);\\n    element.download = `${selectedDataSource}.txt`;\\n    document.body.appendChild(element);\\n    element.click();\\n    document.body.removeChild(element);\\n  };\\n\\n  const onScroll = ({ scrollOffsetToBottom, scrollDirection, scrollUpdateWasRequested }) => {\\n    if (!scrollUpdateWasRequested) {\\n      if (scrollOffsetToBottom > 0) {\\n        setIsPaused(true);\\n      } else {\\n        setIsPaused(false);\\n      }\\n    }\\n  };\\n\\n  const selectDataSourceMenu = Object.entries(dataSources).map(([value, { type }]) => (\\n    <SelectOption\\n      key={value}\\n      value={value}\\n      isSelected={selectedDataSource === value}\\n      isChecked={selectedDataSource === value}\\n    >\\n      <Badge key={value}>{type}</Badge>\\n      {` ${value}`}\\n    </SelectOption>\\n  ));\\n\\n  const selectDataSourcePlaceholder = (\\n    <React.Fragment>\\n      <Badge>{dataSources[selectedDataSource].type}</Badge>\\n      {` ${selectedDataSource}`}\\n    </React.Fragment>\\n  );\\n\\n  const ControlButton = () => {\\n    return (\\n      <Button\\n        variant={isPaused ? 'plain' : 'link'}\\n        onClick={() => {\\n          setIsPaused(!isPaused);\\n        }}\\n      >\\n        {isPaused ? <PlayIcon /> : <PauseIcon />}\\n        {isPaused ? ` Resume Log` : ` Pause Log`}\\n      </Button>\\n    );\\n  };\\n\\n  const leftAlignedToolbarGroup = (\\n    <React.Fragment>\\n      <ToolbarToggleGroup toggleIcon={<EllipsisVIcon />} breakpoint=\\\"md\\\">\\n        <ToolbarItem variant=\\\"search-filter\\\">\\n          <Select\\n            onToggle={isOpen => setSelectDataSourceOpen(isOpen)}\\n            onSelect={(event, selection) => {\\n              setSelectDataSourceOpen(false);\\n              setSelectedDataSource(selection);\\n              setSelectedData(data[dataSources[selection].id].split('\\\\n'));\\n              setLinesBehind(0);\\n              setBuffer([]);\\n              setItemCount(1);\\n              setCurrentItemCount(0);\\n            }}\\n            selections={selectedDataSource}\\n            isOpen={selectDataSourceOpen}\\n            placeholderText={selectDataSourcePlaceholder}\\n          >\\n            {selectDataSourceMenu}\\n          </Select>\\n        </ToolbarItem>\\n        <ToolbarItem variant=\\\"search-filter\\\">\\n          <LogViewerSearch onFocus={e => setIsPaused(true)} placeholder=\\\"Search\\\" />\\n        </ToolbarItem>\\n      </ToolbarToggleGroup>\\n      <ToolbarItem>\\n        <ControlButton />\\n      </ToolbarItem>\\n    </React.Fragment>\\n  );\\n\\n  const rightAlignedToolbarGroup = (\\n    <React.Fragment>\\n      <ToolbarGroup variant=\\\"icon-button-group\\\">\\n        <ToolbarItem>\\n          <Tooltip position=\\\"top\\\" content={<div>Download</div>}>\\n            <Button onClick={onDownloadClick} variant=\\\"plain\\\" aria-label=\\\"Download current logs\\\">\\n              <DownloadIcon />\\n            </Button>\\n          </Tooltip>\\n        </ToolbarItem>\\n        <ToolbarItem>\\n          <Tooltip position=\\\"top\\\" content={<div>Expand</div>}>\\n            <Button onClick={onExpandClick} variant=\\\"plain\\\" aria-label=\\\"View log viewer in full screen\\\">\\n              <ExpandIcon />\\n            </Button>\\n          </Tooltip>\\n        </ToolbarItem>\\n      </ToolbarGroup>\\n    </React.Fragment>\\n  );\\n\\n  const FooterButton = () => {\\n    const handleClick = e => {\\n      setIsPaused(false);\\n    };\\n    return (\\n      <Button onClick={handleClick} isBlock>\\n        <OutlinedPlayCircleIcon />\\n        resume {linesBehind === 0 ? null : `and show ${linesBehind} lines`}\\n      </Button>\\n    );\\n  };\\n  return (\\n    <LogViewer\\n      data={renderData}\\n      id=\\\"complex-toolbar-demo\\\"\\n      scrollToRow={currentItemCount}\\n      innerRef={logViewerRef}\\n      height={isFullScreen ? '100%' : 600}\\n      toolbar={\\n        <Toolbar>\\n          <ToolbarContent>\\n            <ToolbarGroup alignment={{ default: 'alignLeft' }}>{leftAlignedToolbarGroup}</ToolbarGroup>\\n            <ToolbarGroup alignment={{ default: 'alignRight' }}>{rightAlignedToolbarGroup}</ToolbarGroup>\\n          </ToolbarContent>\\n        </Toolbar>\\n      }\\n      overScanCount={10}\\n      footer={isPaused && <FooterButton />}\\n      onScroll={onScroll}\\n    />\\n  );\\n};\\n\",\"title\":\"With complex toolbar\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from '../examples/realTestData';\\nimport { LogViewer, LogViewerSearch } from '@patternfly/react-log-viewer';\\nimport {\\n\\tBadge,\\n\\tButton,\\n\\tTooltip,\\n\\tToolbar,\\n\\tToolbarContent,\\n\\tToolbarGroup,\\n\\tToolbarItem,\\n\\tToolbarToggleGroup\\n} from '@patternfly/react-core';\\nimport {\\n\\tSelect as SelectDeprecated,\\n\\tSelectOption as SelectOptionDeprecated\\n} from '@patternfly/react-core/deprecated';\\nimport OutlinedPlayCircleIcon from '@patternfly/react-icons/dist/esm/icons/outlined-play-circle-icon';\\nimport ExpandIcon from '@patternfly/react-icons/dist/esm/icons/expand-icon';\\nimport PauseIcon from '@patternfly/react-icons/dist/esm/icons/pause-icon';\\nimport PlayIcon from '@patternfly/react-icons/dist/esm/icons/play-icon';\\nimport EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';\\nimport DownloadIcon from '@patternfly/react-icons/dist/esm/icons/download-icon';\\n\\nconst ComplexToolbarLogViewer = () => {\\n  const dataSources = {\\n    'container-1': { type: 'C', id: 'data1' },\\n    'container-2': { type: 'D', id: 'data2' },\\n    'container-3': { type: 'E', id: 'data3' }\\n  };\\n  const [isPaused, setIsPaused] = React.useState(false);\\n  const [isFullScreen, setIsFullScreen] = React.useState(false);\\n  const [itemCount, setItemCount] = React.useState(1);\\n  const [currentItemCount, setCurrentItemCount] = React.useState(0);\\n  const [renderData, setRenderData] = React.useState('');\\n  const [selectedDataSource, setSelectedDataSource] = React.useState('container-1');\\n  const [selectDataSourceOpen, setSelectDataSourceOpen] = React.useState(false);\\n  const [timer, setTimer] = React.useState(null);\\n  const [selectedData, setSelectedData] = React.useState(data[dataSources[selectedDataSource].id].split('\\\\n'));\\n  const [buffer, setBuffer] = React.useState([]);\\n  const [linesBehind, setLinesBehind] = React.useState(0);\\n  const logViewerRef = React.useRef();\\n\\n  React.useEffect(() => {\\n    setTimer(\\n      window.setInterval(() => {\\n        setItemCount(itemCount => itemCount + 1);\\n      }, 500)\\n    );\\n    return () => {\\n      window.clearInterval(timer);\\n    };\\n  }, []);\\n\\n  React.useEffect(() => {\\n    if (itemCount > selectedData.length) {\\n      window.clearInterval(timer);\\n    } else {\\n      setBuffer(selectedData.slice(0, itemCount));\\n    }\\n  }, [itemCount]);\\n\\n  React.useEffect(() => {\\n    if (!isPaused && buffer.length > 0) {\\n      setCurrentItemCount(buffer.length);\\n      setRenderData(buffer.join('\\\\n'));\\n      if (logViewerRef && logViewerRef.current) {\\n        logViewerRef.current.scrollToBottom();\\n      }\\n    } else if (buffer.length !== currentItemCount) {\\n      setLinesBehind(buffer.length - currentItemCount);\\n    } else {\\n      setLinesBehind(0);\\n    }\\n  }, [isPaused, buffer]);\\n\\n  const onExpandClick = _event => {\\n    const element = document.querySelector('#complex-toolbar-demo');\\n\\n    if (!isFullScreen) {\\n      if (element.requestFullscreen) {\\n        element.requestFullscreen();\\n      } else if (element.mozRequestFullScreen) {\\n        element.mozRequestFullScreen();\\n      } else if (element.webkitRequestFullScreen) {\\n        element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);\\n      }\\n      setIsFullScreen(true);\\n    } else {\\n      if (document.exitFullscreen) {\\n        document.exitFullscreen();\\n      } else if (document.webkitExitFullscreen) {\\n        /* Safari */\\n        document.webkitExitFullscreen();\\n      } else if (document.msExitFullscreen) {\\n        /* IE11 */\\n        document.msExitFullscreen();\\n      }\\n      setIsFullScreen(false);\\n    }\\n  };\\n\\n  const onDownloadClick = () => {\\n    const element = document.createElement('a');\\n    const dataToDownload = [data[dataSources[selectedDataSource].id]];\\n    const file = new Blob(dataToDownload, { type: 'text/plain' });\\n    element.href = URL.createObjectURL(file);\\n    element.download = `${selectedDataSource}.txt`;\\n    document.body.appendChild(element);\\n    element.click();\\n    document.body.removeChild(element);\\n  };\\n\\n  const onScroll = ({ scrollOffsetToBottom, _scrollDirection, scrollUpdateWasRequested }) => {\\n    if (!scrollUpdateWasRequested) {\\n      if (scrollOffsetToBottom > 0) {\\n        setIsPaused(true);\\n      } else {\\n        setIsPaused(false);\\n      }\\n    }\\n  };\\n\\n  const selectDataSourceMenu = Object.entries(dataSources).map(([value, { type }]) => (\\n    <SelectOptionDeprecated\\n      key={value}\\n      value={value}\\n      isSelected={selectedDataSource === value}\\n      isChecked={selectedDataSource === value}\\n    >\\n      <Badge key={value}>{type}</Badge>\\n      {` ${value}`}\\n    </SelectOptionDeprecated>\\n  ));\\n\\n  const selectDataSourcePlaceholder = (\\n    <React.Fragment>\\n      <Badge>{dataSources[selectedDataSource].type}</Badge>\\n      {` ${selectedDataSource}`}\\n    </React.Fragment>\\n  );\\n\\n  const ControlButton = () => (\\n      <Button\\n        variant={isPaused ? 'plain' : 'link'}\\n        onClick={() => {\\n          setIsPaused(!isPaused);\\n        }}\\n      >\\n        {isPaused ? <PlayIcon /> : <PauseIcon />}\\n        {isPaused ? ` Resume Log` : ` Pause Log`}\\n      </Button>\\n    );\\n    \\n  const leftAlignedToolbarGroup = (\\n    <React.Fragment>\\n      <ToolbarToggleGroup toggleIcon={<EllipsisVIcon />} breakpoint=\\\"md\\\">\\n        <ToolbarItem variant=\\\"search-filter\\\">\\n          <SelectDeprecated\\n            onToggle={(_event, isOpen) => setSelectDataSourceOpen(isOpen)}\\n            onSelect={(event, selection) => {\\n              setSelectDataSourceOpen(false);\\n              setSelectedDataSource(selection);\\n              setSelectedData(data[dataSources[selection].id].split('\\\\n'));\\n              setLinesBehind(0);\\n              setBuffer([]);\\n              setItemCount(1);\\n              setCurrentItemCount(0);\\n            }}\\n            selections={selectedDataSource}\\n            isOpen={selectDataSourceOpen}\\n            placeholderText={selectDataSourcePlaceholder}\\n          >\\n            {selectDataSourceMenu}\\n          </SelectDeprecated>\\n        </ToolbarItem>\\n        <ToolbarItem variant=\\\"search-filter\\\">\\n          <LogViewerSearch onFocus={_e => setIsPaused(true)} placeholder=\\\"Search\\\" />\\n        </ToolbarItem>\\n      </ToolbarToggleGroup>\\n      <ToolbarItem>\\n        <ControlButton />\\n      </ToolbarItem>\\n    </React.Fragment>\\n  );\\n\\n  const rightAlignedToolbarGroup = (\\n    <React.Fragment>\\n      <ToolbarGroup variant=\\\"icon-button-group\\\">\\n        <ToolbarItem>\\n          <Tooltip position=\\\"top\\\" content={<div>Download</div>}>\\n            <Button onClick={onDownloadClick} variant=\\\"plain\\\" aria-label=\\\"Download current logs\\\">\\n              <DownloadIcon />\\n            </Button>\\n          </Tooltip>\\n        </ToolbarItem>\\n        <ToolbarItem>\\n          <Tooltip position=\\\"top\\\" content={<div>Expand</div>}>\\n            <Button onClick={onExpandClick} variant=\\\"plain\\\" aria-label=\\\"View log viewer in full screen\\\">\\n              <ExpandIcon />\\n            </Button>\\n          </Tooltip>\\n        </ToolbarItem>\\n      </ToolbarGroup>\\n    </React.Fragment>\\n  );\\n\\n  const FooterButton = () => {\\n    const handleClick = _e => {\\n      setIsPaused(false);\\n    };\\n    return (\\n      <Button onClick={handleClick} isBlock>\\n        <OutlinedPlayCircleIcon />\\n        resume {linesBehind === 0 ? null : `and show ${linesBehind} lines`}\\n      </Button>\\n    );\\n  };\\n  return (\\n    <LogViewer\\n      data={renderData}\\n      id=\\\"complex-toolbar-demo\\\"\\n      scrollToRow={currentItemCount}\\n      innerRef={logViewerRef}\\n      height={isFullScreen ? '100%' : 600}\\n      toolbar={\\n        <Toolbar>\\n          <ToolbarContent>\\n            <ToolbarGroup align={{ default: 'alignLeft' }}>{leftAlignedToolbarGroup}</ToolbarGroup>\\n            <ToolbarGroup align={{ default: 'alignRight' }}>{rightAlignedToolbarGroup}</ToolbarGroup>\\n          </ToolbarContent>\\n        </Toolbar>\\n      }\\n      overScanCount={10}\\n      footer={isPaused && <FooterButton />}\\n      onScroll={onScroll}\\n    />\\n  );\\n};\\n\\nexport default ComplexToolbarLogViewer;\",\"title\":\"With complex toolbar\",\"lang\":\"js": {
+      "React-deprecated": 1
+    },
+    "react';\\nimport { data } from './realTestData';\\nimport { LogViewer } from '@patternfly/react-log-viewer';\\nimport { Checkbox } from '@patternfly/react-core';\\n\\nconst BasicLogViewer = () => {\\n  const [isDarkTheme, setIsDarkTheme] = React.useState(false);\\n\\n  return (\\n    <React.Fragment>\\n      <Checkbox\\n        label=\\\"Dark theme\\\"\\n        isChecked={isDarkTheme}\\n        onChange={(_event, value) => setIsDarkTheme(value)}\\n        aria-label=\\\"toggle dark theme checkbox\\\"\\n        id=\\\"toggle-dark-theme\\\"\\n        name=\\\"toggle-dark-theme\\\"\\n      />\\n      <LogViewer hasLineNumbers={false} height={300} data={data.data} theme={isDarkTheme ? 'dark' : 'light'} />\\n    </React.Fragment>\\n  );\\n};\\n\\nexport default BasicLogViewer;\",\"title\":\"Basic\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from './realTestData';\\nimport { LogViewer, LogViewerSearch } from '@patternfly/react-log-viewer';\\nimport { Toolbar, ToolbarContent, ToolbarItem } from '@patternfly/react-core';\\n\\nconst BasicSearchLogViewer = () => (\\n    <LogViewer\\n      data={data.data}\\n      toolbar={\\n        <Toolbar>\\n          <ToolbarContent>\\n            <ToolbarItem>\\n              <LogViewerSearch placeholder=\\\"Search value\\\" />\\n            </ToolbarItem>\\n          </ToolbarContent>\\n        </Toolbar>\\n      }\\n    />\\n  );\\n\\nexport default BasicSearchLogViewer;\",\"title\":\"With search\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from './realTestData';\\nimport { LogViewer, LogViewerSearch } from '@patternfly/react-log-viewer';\\nimport { Toolbar, ToolbarContent, ToolbarItem, Button, Checkbox } from '@patternfly/react-core';\\n\\nconst CustomControlLogViewer = () => {\\n  const [isTextWrapped, setIsTextWrapped] = React.useState(false);\\n  const onActionClick = () => {\\n    console.log('clicked test action button');\\n  };\\n\\n  const onPrintClick = () => {\\n    console.log('clicked console print button');\\n  };\\n\\n  return (\\n    <LogViewer\\n      data={data.data}\\n      isTextWrapped={isTextWrapped}\\n      toolbar={\\n        <Toolbar>\\n          <ToolbarContent>\\n            <ToolbarItem>\\n              <Button onClick={onActionClick} variant=\\\"control\\\">\\n                Test Action\\n              </Button>\\n            </ToolbarItem>\\n            <ToolbarItem>\\n              <LogViewerSearch placeholder=\\\"Search\\\" />\\n            </ToolbarItem>\\n            <ToolbarItem>\\n              <Button onClick={onPrintClick} variant=\\\"control\\\">\\n                Print to Console\\n              </Button>\\n            </ToolbarItem>\\n            <ToolbarItem alignSelf='center'>\\n              <Checkbox label=\\\"Wrap text\\\" aria-label=\\\"wrap text checkbox\\\" isChecked={isTextWrapped} id=\\\"wrap-text-checkbox\\\" onChange={(_event, value) => setIsTextWrapped(value)} />\\n            </ToolbarItem>\\n          </ToolbarContent>\\n        </Toolbar>\\n      }\\n    />\\n  );\\n};\\n\\nexport default CustomControlLogViewer;\",\"title\":\"With complex toolbar\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from './realTestData';\\nimport { LogViewer } from '@patternfly/react-log-viewer';\\nimport { Banner } from '@patternfly/react-core';\\n\\nconst HeaderComponentLogViewer = () => (\\n    <LogViewer\\n      hasLineNumbers={false}\\n      height={300}\\n      data={data.data}\\n      theme=\\\"dark\\\"\\n      header={<Banner>5019 lines</Banner>}\\n    />\\n  );\\n\\nexport default HeaderComponentLogViewer;\",\"title\":\"With header component\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from './realTestData';\\nimport { LogViewer } from '@patternfly/react-log-viewer';\\nimport { Button } from '@patternfly/react-core';\\n\\nconst FooterComponentLogViewer = () => {\\n  const logViewerRef = React.useRef();\\n  const FooterButton = () => {\\n    const handleClick = () => {\\n      logViewerRef.current.scrollToBottom();\\n    };\\n    return <Button onClick={handleClick}>Jump to the bottom</Button>;\\n  };\\n\\n  return (\\n    <LogViewer\\n      ref={logViewerRef}\\n      hasLineNumbers={false}\\n      height={300}\\n      data={data.data}\\n      theme=\\\"dark\\\"\\n      footer={<FooterButton />}\\n    />\\n  );\\n};\\n\\nexport default FooterComponentLogViewer;\",\"title\":\"With footer component\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { data } from './realTestData.js';\\nimport { LogViewer } from '@patternfly/react-log-viewer';\\n\\nconst ANSIColorLogViewer = () => (\\n    <LogViewer\\n      hasLineNumbers={false}\\n      height={300}\\n      data={data.data4}\\n      theme=\\\"dark\\\"\\n    />\\n  );\\n\\n  export default ANSIColorLogViewer;\",\"title\":\"With ANSI color logs\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { ExtendedButton } from '@patternfly/react-log-viewer';\\n\\nexport const BasicExample: React.FunctionComponent = () => <ExtendedButton>My custom extension button</ExtendedButton>;\\n\",\"title\":\"Example\",\"lang\":\"js": {
+      "React": 1
+    },
+    "react';\\nimport { ExtendedButton } from '@patternfly/react-log-viewer';\\n\\nexport const BasicExample: React.FunctionComponent = () => <ExtendedButton>My custom extension button</ExtendedButton>;\\n\",\"title\":\"Fullscreen example\",\"lang\":\"js\",\"isFullscreen": {
+      "React": 1
+    },
+    "@patternfly/react-styles": {
+      "css": 2
+    },
+    "@patternfly/react-styles/css/components/LogViewer/log-viewer": {
+      "styles": 2
+    }
+  },
+  "classes": {
+    "pf-m-current": 1
+  },
+  "cssVars": {},
+  "repo": "https://github.com/patternfly/react-log-viewer.git",
+  "name": "React Log Viewer",
+  "date": "2023-09-13T19:53:29.638Z",
+  "dependencies": {
+    "@babel/core": 1,
+    "@babel/preset-env": 1,
+    "@babel/preset-flow": 1,
+    "@babel/preset-react": 1,
+    "@babel/preset-typescript": 1,
+    "@patternfly/documentation-framework": 1,
+    "@patternfly/patternfly": 1,
+    "@patternfly/patternfly-a11y": 1,
+    "@patternfly/react-code-editor": 1,
+    "@patternfly/react-core": 1,
+    "@patternfly/react-icons": 1,
+    "@patternfly/react-styles": 1,
+    "@patternfly/react-table": 1,
+    "@testing-library/dom": 1,
+    "@testing-library/jest-dom": 1,
+    "@testing-library/react": 1,
+    "@testing-library/user-event": 1,
+    "@types/react": 1,
+    "@types/react-dom": 1,
+    "@typescript-eslint/eslint-plugin": 1,
+    "@typescript-eslint/parser": 1,
+    "babel-jest": 1,
+    "concurrently": 1,
+    "eslint": 1,
+    "eslint-config-prettier": 1,
+    "eslint-config-standard-with-typescript": 1,
+    "eslint-plugin-import": 1,
+    "eslint-plugin-markdown": 1,
+    "eslint-plugin-n": 1,
+    "eslint-plugin-prettier": 1,
+    "eslint-plugin-promise": 1,
+    "eslint-plugin-react": 1,
+    "eslint-plugin-react-hooks": 1,
+    "jest": 1,
+    "jest-canvas-mock": 1,
+    "jest-environment-jsdom": 1,
+    "memoize-one": 1,
+    "monaco-editor": 1,
+    "prettier": 1,
+    "react": 2,
+    "react-dom": 2,
+    "react-monaco-editor": 1,
+    "resize-observer-polyfill": 1,
+    "rimraf": 1,
+    "serve": 1,
+    "tslib": 1,
+    "typescript": 2
+  }
+}

@@ -429,6 +429,18 @@
     {
       "git": "https://github.com/janus-idp/backstage-plugins",
       "name": "Backstage"
+    },
+    {
+      "git": "https://github.com/patternfly/react-log-viewer.git",
+      "name": "React Log Viewer"
+    },
+    {
+      "git": "https://github.com/patternfly/react-catalog-view.git",
+      "name": "React Catalog View"
+    },
+    {
+      "git": "https://github.com/patternfly/patternfly-quickstarts.git",
+      "name": "Patternfly Quickstarts"
     }
   ]
 }
