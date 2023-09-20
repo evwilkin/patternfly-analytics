@@ -1,0 +1,161 @@
+{
+  "files": {
+    "total": {
+      "withPatternfly": {
+        "jsx": 1,
+        "js": 2,
+        "tsx": 13
+      },
+      "js": 14,
+      "jsx": 1,
+      "tsx": 25,
+      "ts": 9
+    },
+    "withPatternfly": {
+      "jsx": {
+        "files": [
+          "/packages/module/patternfly-docs/content/extensions/react-console/examples/SerialConsoleCustom.jsx"
+        ]
+      },
+      "js": {
+        "files": [
+          "/packages/module/patternfly-docs/generated/extensions/react-console/react.js",
+          "/packages/module/patternfly-docs/pages/index.js"
+        ]
+      },
+      "tsx": {
+        "files": [
+          "/packages/module/src/components/AccessConsoles/AccessConsoles.tsx",
+          "/packages/module/src/components/DesktopViewer/ConnectWithRemoteViewer.tsx",
+          "/packages/module/src/components/DesktopViewer/DesktopViewer.tsx",
+          "/packages/module/src/components/DesktopViewer/ManualConnection.tsx",
+          "/packages/module/src/components/DesktopViewer/MoreInformationDefaultContent.tsx",
+          "/packages/module/src/components/DesktopViewer/MoreInformationInstallVariant.tsx",
+          "/packages/module/src/components/SerialConsole/SerialConsole.tsx",
+          "/packages/module/src/components/SerialConsole/SerialConsoleActions.tsx",
+          "/packages/module/src/components/SerialConsole/XTerm.tsx",
+          "/packages/module/src/components/SpiceConsole/SpiceActions.tsx",
+          "/packages/module/src/components/SpiceConsole/SpiceConsole.tsx",
+          "/packages/module/src/components/VncConsole/VncActions.tsx",
+          "/packages/module/src/components/VncConsole/VncConsole.tsx"
+        ]
+      }
+    }
+  },
+  "imports": {
+    "@patternfly/react-core": {
+      "debounce": 3,
+      "Title": 2,
+      "PageSection": 1,
+      "Button": 5,
+      "ExpandableSection": 1,
+      "DescriptionList": 2,
+      "DescriptionListGroup": 2,
+      "DescriptionListTerm": 2,
+      "DescriptionListDescription": 2,
+      "EmptyState": 2,
+      "EmptyStateBody": 2,
+      "EmptyStateIcon": 2,
+      "Spinner": 2,
+      "EmptyStateHeader": 2,
+      "EmptyStateFooter": 2,
+      "canUseDOM": 1,
+      "ButtonVariant": 1
+    },
+    "@patternfly/react-console": {
+      "SerialConsole": 2,
+      "AccessConsoles": 1,
+      "VncConsole": 1,
+      "DesktopViewer": 1
+    },
+    "@patternfly/documentation-framework/components": {
+      "AutoLinkHeader": 1,
+      "Example": 1,
+      "Link": 1
+    },
+    "react';\\nimport { AccessConsoles, SerialConsole, VncConsole, DesktopViewer } from '@patternfly/react-console';\\nimport { SerialConsoleCustom } from './SerialConsoleCustom.jsx';\\nimport { debounce } from '@patternfly/react-core';\\n\\nAccessConsolesVariants = () => {\\n  const [status, setStatus] = React.useState('disconnected');\\n  const setConnected = React.useRef(debounce(() => setStatus('connected'), 3000)).current;\\n  const onConnect = React.useCallback(() => {\\n    setStatus('loading');\\n    setConnected();\\n  }, [setConnected])\\n  const onDisconnect = React.useCallback(() => setStatus('disconnected'), [])\\n  const ref = React.createRef();\\n\\n  return (\\n    <AccessConsoles preselectedType=\\\"SerialConsole\\\">\\n      <VncConsole host=\\\"localhost\\\" port=\\\"9090\\\" encrypt shared />\\n      <SerialConsole\\n        onConnect={onConnect}\\n        status={status}\\n        onDisconnect={onDisconnect}\\n        onData={data => {\\n          ref.current.onDataReceived(data);\\n        }}\\n        ref={ref}\\n      />\\n      <SerialConsoleCustom type='Serial Console pty2' />\\n      <DesktopViewer spice={{ address: '127.0.0.1', port: '5900' }} vnc={{ address: '127.0.0.1', port: '5901' }} />\\n    </AccessConsoles>\\n  );\\n};\",\"title\":\"Basic Usage\",\"lang\":\"js\",\"isFullscreen": {
+      "React": 1
+    },
+    "@patternfly/react-styles": {
+      "css": 7
+    },
+    "@patternfly/react-core/deprecated": {
+      "Select-deprecated": 1,
+      "SelectOption-deprecated": 1,
+      "SelectOptionObject-deprecated": 1,
+      "SelectVariant-deprecated": 1,
+      "Dropdown-deprecated": 2,
+      "DropdownItem-deprecated": 2,
+      "DropdownToggle-deprecated": 2
+    },
+    "@patternfly/react-styles/css/components/Consoles/AccessConsoles": {
+      "styles": 1
+    },
+    "@patternfly/react-styles/css/components/Consoles/DesktopViewer": {
+      "styles": 1
+    },
+    "@patternfly/react-styles/css/components/Consoles/SerialConsole": {
+      "styles": 2
+    },
+    "@patternfly/react-styles/css/components/Consoles/VncConsole": {
+      "styles": 2
+    }
+  },
+  "classes": {},
+  "cssVars": {},
+  "repo": "https://github.com/patternfly/react-console.git",
+  "name": "PatternFly React Console",
+  "date": "2023-09-13T20:16:20.664Z",
+  "dependencies": {
+    "@babel/core": 1,
+    "@babel/preset-env": 1,
+    "@babel/preset-flow": 1,
+    "@babel/preset-react": 1,
+    "@babel/preset-typescript": 1,
+    "@novnc/novnc": 1,
+    "@patternfly/documentation-framework": 1,
+    "@patternfly/patternfly": 1,
+    "@patternfly/patternfly-a11y": 1,
+    "@patternfly/react-code-editor": 1,
+    "@patternfly/react-core": 1,
+    "@patternfly/react-styles": 1,
+    "@patternfly/react-table": 1,
+    "@spice-project/spice-html5": 1,
+    "@testing-library/dom": 1,
+    "@testing-library/jest-dom": 1,
+    "@testing-library/react": 1,
+    "@testing-library/user-event": 1,
+    "@types/file-saver": 1,
+    "@types/react": 1,
+    "@types/react-dom": 1,
+    "@typescript-eslint/eslint-plugin": 1,
+    "@typescript-eslint/parser": 1,
+    "babel-jest": 1,
+    "concurrently": 1,
+    "eslint": 1,
+    "eslint-config-prettier": 1,
+    "eslint-config-standard-with-typescript": 1,
+    "eslint-plugin-import": 1,
+    "eslint-plugin-markdown": 1,
+    "eslint-plugin-n": 1,
+    "eslint-plugin-prettier": 1,
+    "eslint-plugin-promise": 1,
+    "eslint-plugin-react": 1,
+    "eslint-plugin-react-hooks": 1,
+    "file-saver": 1,
+    "jest": 1,
+    "jest-canvas-mock": 1,
+    "jest-environment-jsdom": 1,
+    "monaco-editor": 1,
+    "prettier": 1,
+    "react": 2,
+    "react-dom": 2,
+    "react-monaco-editor": 1,
+    "rimraf": 1,
+    "serve": 1,
+    "tslib": 1,
+    "typescript": 1,
+    "xterm": 1,
+    "xterm-addon-fit": 1
+  }
+}

@@ -4,7 +4,8 @@
   "description": "Analytics for patternfly",
   "main": "repo-stats.js",
   "scripts": {
-    "collect": "node src/static-analysis/cli.js collect -j"
+    "collect": "node src/static-analysis/cli.js collect -j",
+    "collect-ext": "node src/static-analysis/cli.js collect -j -e"
   },
   "author": "redallen",
   "license": "MIT",

@@ -1248,7 +1248,7 @@
   },
   "repo": "https://github.com/patternfly/patternfly-quickstarts.git",
   "name": "Patternfly Quickstarts",
-  "date": "2023-09-13T19:53:29.638Z",
+  "date": "2023-09-13T20:16:20.664Z",
   "dependencies": {
     "@cloudmosaic/quickstarts": 1,
     "@patternfly/documentation-framework": 1,

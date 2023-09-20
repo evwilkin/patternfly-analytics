@@ -7,6 +7,7 @@ const { getPackageStats, getAggregatePackageStats } = require('./getPackageStats
 const { getSortedImports, getSortedUsage } = require('./getSortedImports');
 // IMPORT JSON LIST OF REPOS
 const repos = require('../../repos.json').repos;
+const extensionRepos = require('../../extension-repos.json').repos;
 
 // DEFINE OUTPUT DIRECTORIES
 const statsDir = path.resolve(__dirname, '../../stats-static');
@@ -21,12 +22,13 @@ function collectPatternflyStats(argv) {
   // CREATE NEW DIRECTORY W/TODAY'S DATE FOR REPORT
   // STATS-STATIC/{DATE}
   const dir = `${statsDir}/${date.substring(0, 10)}`;
+  let repoList = argv.e ? extensionRepos : repos;
   if (argv.c) {
     fs.removeSync(tmpDir);
   }
   // LOOP THROUGH EVERY REPO & CLONE INTO NEW DIRECTORY (IF NOT ALREADY EXISTS)
   // OR GIT PULL (IF DOES EXIST)
-  repos
+  repoList
     .filter(repo => argv.p || !repo.private) // Only public repos unless flag passed
     .forEach(repo => {
       console.log(repo.name);
@@ -75,6 +77,11 @@ require('yargs')
       default: 'false',
       describe: 'whether to compile package.json stats'
     });
+    yargs.option('e', {
+      type: 'boolean',
+      default: 'false',
+      describe: 'whether to report on patternfly extensions'
+    })
   }, collectPatternflyStats)
   .help()
   .argv;

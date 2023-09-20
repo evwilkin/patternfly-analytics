@@ -1,0 +1,28 @@
+{
+  "repos": [
+    {
+      "git": "https://github.com/patternfly/react-log-viewer.git",
+      "name": "PatternFly React Log Viewer"
+    },
+    {
+      "git": "https://github.com/patternfly/react-catalog-view.git",
+      "name": "PatternFly React Catalog View"
+    },
+    {
+      "git": "https://github.com/patternfly/patternfly-quickstarts.git",
+      "name": "Patternfly Quickstarts"
+    },
+    {
+      "git": "https://github.com/patternfly/react-console.git",
+      "name": "PatternFly React Console"
+    },
+    {
+      "git": "https://github.com/patternfly/react-user-feedback.git",
+      "name": "PatternFly React User Feedback"
+    },
+    {
+      "git": "https://github.com/patternfly/react-topology.git",
+      "name": "PatternFly React Topology"
+    }
+  ]
+}
