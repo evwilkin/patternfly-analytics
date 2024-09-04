@@ -246,10 +246,6 @@
       "name": "Ansible-ui"
     },
     {
-      "git": "https://github.com/keycloak/keycloak-ui",
-      "name": "Keycloak-ui"
-    },
-    {
       "git": "https://github.com/openshift-assisted/assisted-ui-lib",
       "name": "Openshift-assisted-ui"
     },
@@ -296,7 +292,6 @@
     {
       "git": "https://github.com/redhat-developer/app-services-ui",
       "name": "App-services-ui"
-      
     },
     {
       "git": "https://github.com/janus-idp/backstage-plugins",
