@@ -13,7 +13,7 @@ COMPONENT_DETAILS_TAB = '3 Component Details'
 
 
 do_collect = False    # Set to True to trigger the collection from here
-collect_args = "-j "  # Add -p to also collect private repos
+collect_args = "-j -p"  # Add -p to also collect private repos
 
 if do_collect:
     print("----------- running the collector code -------")
@@ -23,9 +23,9 @@ if do_collect:
     print("----------- collector done -------------------")
 
 # Find the directory with the csv files
-today = datetime.now(UTC)
-today_str = "%04d-%02d-%02d" % (today.year, today.month, today.day)
-in_dir = "stats-static/" + today_str
+# today = datetime.now(timezone.utc)
+# today_str = "%04d-%02d-%02d" % (today.year, today.month, today.day)
+in_dir = "stats-static/2025-06-16"
 
 
 # Helper method to clean up cell values by
@@ -182,7 +182,7 @@ def check_input_available():
 if __name__ == "__main__":
     # Action starts here
 
-    today_report_dir = 'reports/%s' % today_str
+    today_report_dir = 'reports/2025-06-16'
     os.makedirs(today_report_dir, exist_ok=True)
 
     check_input_available()
