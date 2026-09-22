@@ -506,6 +506,102 @@
     {
       "git": "https://github.com/cryostatio/cryostat-openshift-console-plugin",
       "name": "Cryostat-openshift-console-plugin"
-    }
+    },
+    {
+        "git": "https://github.com/RedHatInsights/edge-frontend",
+        "name": "RHEL for Edge"
+    },
+    {
+        "git": "https://github.com/content-services/content-sources-frontend",
+        "name": "Content Sources"
+    },
+    {
+        "git": "https://github.com/podengo-project/idmsvc-frontend",
+        "name": "IdMSVC Frontend"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/activation-keys-ui",
+        "name": "Activation Keys UI"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/user-preferences-frontend",
+        "name": "User Preferences Frontend"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/access-requests-frontend",
+        "name": "Access Requests Frontend"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/learning-resources",
+        "name": "Learning Resources"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/service-accounts",
+        "name": "Service Accounts"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/subscriptions-dashboard-ui",
+        "name": "Subscriptions Dashboard"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/subscription-central-ui",
+        "name": "Subscription Central"
+    },
+    {
+        "git": "https://github.com/podman-desktop/podman-desktop",
+        "name": "Podman Desktop"
+    },
+    {
+        "git": "https://github.com/konflux-ci/konflux-ui",
+        "name": "Konflux UI"
+    },
+    {
+        "git": "https://github.com/guacsec/trustify-dependency-analytics",
+        "name": "Trustify Dependency Analytics"
+    },
+    {
+        "git": "https://github.com/crc-org/crc-extension",
+        "name": "CRC Extension"
+    },
+    {
+        "git": "https://github.com/project-ncl/pnc-web-ui-react",
+        "name": "PNC Web UI"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/frontend-starter-app",
+        "name": "Frontend Starter App"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/clowder-plugin",
+        "name": "Clowder Plugin"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/firelink-frontend",
+        "name": "Firelink Frontend"
+    },
+    {
+        "git": "https://github.com/RedHatInsights/backstage-plugin-openshift",
+        "name": "Backstage Plugin Openshift"
+    },
+    {
+        "git": "https://github.com/apache/incubator-kie-tools",
+        "name": "Incubator KIE Tools"
+    },
+    {
+        "git": "https://github.com/hawtio/hawtio-react",
+        "name": "Hawtio"
+    },
+    {
+        "git": "https://github.com/osbuild/image-builder-frontend",
+        "name": "Image Builder Frontend"
+    },
+    {
+        "git": "https://github.com/netobserv/netobserv-web-console",
+        "name": "NetObserv"
+    },
+    {
+        "git": "https://github.com/kubeflow/hub",
+        "name": "Hub"
+    }  
   ]
 }
